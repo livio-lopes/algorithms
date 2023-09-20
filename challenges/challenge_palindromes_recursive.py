@@ -10,4 +10,4 @@ def is_palindrome_recursive(word, low_index, high_index):
     # raise NotImplementedError
 
 
-print(is_palindrome_recursive("ABA", -1, 0))
+# print(is_palindrome_recursive("ABA", -1, 0))
