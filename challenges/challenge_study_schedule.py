@@ -1,25 +1,25 @@
 from collections import Counter
 
 
-def study_schedule(permanence_period, target_time):
+def best_time(permanence_period, target_time):
     interval_study = []
+    for start, end in permanence_period:
+        if isinstance(start, int) and isinstance(end, int):
+            interval_study.extend(list(range(start, end + 1)))
+        else:
+            return None
+    if not target_time in interval_study:
+        return None
+    return dict(Counter(interval_study))[target_time]
+
+
+def study_schedule(permanence_period, target_time):
     if target_time == 0:
-        for start, end in permanence_period:
-            if isinstance(start, int) and isinstance(end, int):
-                interval_study.extend(list(range(start, end + 1)))
-            else:
-                return None
-            return dict(Counter(interval_study))[target_time]
-        return
+        return best_time(permanence_period, target_time)
     elif not target_time or not permanence_period:
         return None
     else:
-        for start, end in permanence_period:
-            if isinstance(start, int) and isinstance(end, int):
-                interval_study.extend(list(range(start, end + 1)))
-            else:
-                return None
-        return dict(Counter(interval_study))[target_time]
+        return best_time(permanence_period, target_time)
     """Faça o código aqui."""
     # raise NotImplementedError
 
