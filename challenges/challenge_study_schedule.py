@@ -8,7 +8,7 @@ def best_time(permanence_period, target_time):
             interval_study.extend(list(range(start, end + 1)))
         else:
             return None
-    if not target_time in interval_study:
+    if target_time not in interval_study:
         return None
     return dict(Counter(interval_study))[target_time]
 
