@@ -1,6 +1,7 @@
 from collections import Counter
 
 
+# update commit
 def best_time(permanence_period, target_time):
     interval_study = []
     for start, end in permanence_period:
